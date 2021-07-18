@@ -1,0 +1,21 @@
+$primary: #FCC811;
+$secondary: #D24D0F;
+$dark: #000000;
+$light: #FFFFFF;
+
+@font-face {
+    font-family: "SF Pro Heavy";
+    src: url("~@/assets/fonts/SF-Pro-Display-Heavy.otf"),
+    url("~@/assets/fonts/SFProDisplay-Heavy.ttf");
+}
+
+@font-face {
+    font-family: "SF Pro Bold";
+    src: url("~@/assets/fonts/SF-Pro-Display-Bold.otf"),
+    url("~@/assets/fonts/SFProDisplay-Bold.ttf");
+}
+@font-face {
+    font-family: "SF Pro Light";
+    src: url("~@/assets/fonts/SF-Pro-Display-Light.otf"),
+    url("~@/assets/fonts/SFProDisplay-Light.ttf");
+}
