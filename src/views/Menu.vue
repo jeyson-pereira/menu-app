@@ -6,39 +6,43 @@
       </div>
       <h1>Menú</h1>
     </div>
-    <div class="nav-menu" id="nav" :class="{ sticky: active }">
-      <div class="scroll-menu">
+    <div class="nav-menu" :class="{ sticky: active }">
+      <div class="scroll-menu" :class="{ center: desktop }" id="nav">
         <div
           class="item-menu"
           @click="selected = 1"
           :class="{ highlight: selected == 1 }"
         >
-          <i class="fa fa-border-all" /> Todo
+          <i class="fa fa-border-all" />
+          <h3>Todo</h3>
         </div>
         <div
           class="item-menu"
           @click="selected = 2"
           :class="{ highlight: selected == 2 }"
         >
-          <i class="fa fa-hamburger" /> Comidas
+          <i class="fa fa-hamburger" />
+          <h3>Comidas</h3>
         </div>
         <div
           class="item-menu"
           @click="selected = 3"
           :class="{ highlight: selected == 3 }"
         >
-          <i class="fa fa-ice-cream" /> Heladería
+          <i class="fa fa-ice-cream" />
+          <h3>Heladería</h3>
         </div>
         <div
           class="item-menu"
           @click="selected = 4"
           :class="{ highlight: selected == 4 }"
         >
-          <i class="fa fa-wine-bottle" /> Bebidas
+          <i class="fa fa-wine-bottle" />
+          <h3>Bebidas</h3>
         </div>
       </div>
     </div>
-    <div class="content">
+    <div class="body-content" :class="{ 'unmount-nav': active }">
       <transition name="list">
         <List
           :data="PriceList.comidas"
@@ -68,7 +72,13 @@ import List from "../components/List.vue";
 export default {
   name: "Menu",
   data() {
-    return { PriceList: PriceList, selected: 1, active: false };
+    return {
+      PriceList: PriceList,
+      selected: 1,
+      active: false,
+      desktop: undefined,
+      windowWidth: window.innerWidth,
+    };
   },
   components: { List },
   methods: {
@@ -77,6 +87,14 @@ export default {
         return "nav";
       } else {
         return "sticky-nav";
+      }
+    },
+    onResize() {
+      this.windowWidth = window.innerWidth;
+      if (this.windowWidth > 400) {
+        this.desktop = true;
+      } else {
+        this.desktop = false;
       }
     },
   },
@@ -90,6 +108,13 @@ export default {
       }
     };
   },
+  created() {
+    this.onResize();
+    window.addEventListener("resize", this.onResize);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.onResize);
+  },
 };
 </script>
 
@@ -101,6 +126,8 @@ export default {
     background-color: $primary;
     height: auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
     img {
       padding-top: 10px;
       width: 200px;
@@ -127,47 +154,71 @@ export default {
     z-index: 99;
   }
   .nav-menu {
-    display: flex;
-    justify-content: center;
     background-color: $primary;
     padding-top: 10px;
     padding-bottom: 10px;
+    overflow: auto;
     .scroll-menu {
+      margin: 0 5px 0 5px;
       display: flex;
-      overflow-y: auto;
       .item-menu {
         background-color: $light;
-        font-family: "SF Pro Light";
-        text-align: center;
         color: $dark;
         border-radius: 25px;
-        margin-left: 10px;
         padding: 10px;
         cursor: pointer;
         display: flex;
         align-items: center;
+        margin: 0 5px 0 5px;
         -webkit-tap-highlight-color: transparent;
-        i {
-          margin-right: 4px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        h3 {
+          margin-left: 5px;
+          font-family: "SF Pro Light";
+          font-weight: normal;
+          font-size: 16px;
         }
+        i {
+          .fa {
+            line-height: 0%;
+          }
+        }
+      }
+      .item-menu:active {
+        background-color: $secondary;
+        color: $light;
       }
       .highlight {
         background-color: $secondary;
         color: $light;
       }
     }
+    .center {
+      justify-content: center;
+    }
   }
-  .content {
-    margin: 0 0 20px 0;
+  .body-content {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
     align-self: center;
-    max-width: 800px;
+    min-width: 230px;
+    max-width: 600px;
+  }
+  .unmount-nav {
+    margin-top: 60px;
   }
 }
 
 .sticky {
+  min-width: 100%;
   position: fixed;
-  width: 100%;
-  z-index: 99;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);

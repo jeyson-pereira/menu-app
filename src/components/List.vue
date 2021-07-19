@@ -1,8 +1,8 @@
 <template>
   <div class="list-container">
-    <div class="item-container" v-for="(item, index) in data" :key="index.id">
-      <div class="content" v-if="item.isActive">
-        <div class="photo img-container">
+    <div class="item-container" v-for="item in items" :key="item.name">
+      <div class="content">
+        <div class="img-container">
           <img
             :src="require(`@/assets/img/menu/${item.img}`)"
             :alt="item.img"
@@ -21,50 +21,58 @@
 export default {
   name: "List",
   props: ["data"],
+  data() {
+    return {
+      items: [],
+    };
+  },
+  created() {
+    this.data.map((item) => {
+      if (item.isActive) {
+        this.items.push(item);
+      }
+    });
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.list-container {
-  .item-container {
-    align-self: center;
-    margin: 20px 24px 0px 24px;
-    border-radius: 15px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    .content {
+.item-container {
+  margin: 20px 24px 0px 24px;
+  border-radius: 15px;
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 10px 0 10px;
+    img {
+      width: 120px;
+      height: 120px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+    }
+    .info {
+      font-family: "SF Pro Bold";
       display: flex;
-      flex-direction: row;
-      padding: 20px;
-      justify-content: space-around;
+      flex-direction: column;
+      width: 50%;
       align-items: center;
-      .photo {
-        img {
-          -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
-          filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
-          width: 100px;
-        }
-      }
-      .info {
-        margin: 5px;
+      .name {
         text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .name {
-          font-family: "SF Pro Bold";
-          color: $dark;
-          margin-bottom: 10px;
-        }
-        .price {
-          font-family: "SF Pro Bold";
-          color: $light;
-          background-color: $secondary;
-          border-radius: 25px;
-          padding: 5px;
-          width: 150px;
-        }
+        color: $dark;
+      }
+      .price {
+        text-align: center;
+        color: $light;
+        background-color: $secondary;
+        padding: 10px;
+        border-radius: 25px;
+        margin-top: 10px;
       }
     }
   }
