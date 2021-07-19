@@ -54,7 +54,8 @@ export default {
       height: 120px;
       margin-top: 10px;
       margin-bottom: 10px;
-      border-radius: 50%;
+      -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2));
+      filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2));
     }
     .info {
       font-family: "SF Pro Bold";
