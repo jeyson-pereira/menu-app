@@ -30,7 +30,7 @@
             "name": "Ensalada de Frutas",
             "price": 5000,
             "img": "test.png",
-            "isActive": false
+            "isActive": true
         },
         {
             "name": "Banana Split",
@@ -48,15 +48,15 @@
     "bebidas": [
         {
             "name": "Gaseosa Personal (350ml)",
-            "price": 2000,
+            "price": 2500,
             "img": "test.png",
             "isActive": true
         },
         {
             "name": "Botella de Agua",
-            "price": 999,
-            "img": "",
-            "isActive": false
+            "price": 2500,
+            "img": "test.png",
+            "isActive": true
         },
         {
             "name": "Gaseosa 1.35 Lt.",
