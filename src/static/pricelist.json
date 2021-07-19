@@ -1,92 +1,74 @@
 {
     "comidas": [
         {
-            "id": 1,
-            "name": "Empanada de Pollo",
-            "price": 100,
+            "name": "Empanada de Pollo/Carne",
+            "price": 2000,
             "img": "test.png",
             "isActive": true
         },
         {
-            "id": 2,
-            "name": "Empanada de Carne",
-            "price": 200,
-            "img": "test.png",
-            "isActive": true
-        },
-        {
-            "id": 3,
             "name": "Empanada Hawaiana",
-            "price": 300,
+            "price": 2500,
             "img": "hawai.png",
             "isActive": true
         },
         {
-            "id": 4,
             "name": "Perro Caliente ",
-            "price": 400,
+            "price": 999,
             "img": "test.png",
-            "isActive": true
+            "isActive": false
         }
     ],
     "heladeria": [
         {
-            "id": 1,
             "name": "Cono de Helado",
-            "price": 500,
+            "price": 1800,
             "img": "test.png",
             "isActive": true
         },
         {
-            "id": 2,
             "name": "Ensalada de Frutas",
-            "price": 600,
+            "price": 5000,
             "img": "test.png",
             "isActive": false
         },
         {
-            "id": 3,
             "name": "Banana Split",
-            "price": 700,
+            "price": 999,
             "img": "test.png",
             "isActive": false
         },
         {
-            "id": 4,
             "name": "Brownie con Helado",
-            "price": 800,
+            "price": 999,
             "img": "test.png",
             "isActive": false
         }
     ],
     "bebidas": [
         {
-            "id": 1,
             "name": "Gaseosa Personal (350ml)",
-            "price": 900,
+            "price": 2000,
             "img": "test.png",
             "isActive": true
         },
         {
-            "id": 2,
             "name": "Botella de Agua",
-            "price": 1000,
+            "price": 999,
             "img": "",
             "isActive": false
         },
         {
-            "id": 3,
             "name": "Gaseosa 1.35 Lt.",
-            "price": 1100,
+            "price": 999,
             "img": "test.png",
             "isActive": false
         },
         {
-            "id": 4,
             "name": "Gaseosa 2 Lt.",
-            "price": 1200,
+            "price": 999,
             "img": "test.png",
-            "isActive": true
+            "isActive": false
         }
     ]
 }
