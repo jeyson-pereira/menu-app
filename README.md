@@ -1,24 +1,22 @@
-# menu-app
+# menu-app-demo
+Prototipo/demo aplicación web (principalmente para ser vista en dispositivos móviles) de menú digital para negocio de comidas rápidas y heladería.
 
-## Project setup
+### Instalación 🔧
+
+Para instalar el proyecto con Node.js solo basta ejecutar:
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Esto instalara las dependencias necesarias para que nuestro proyecto funcione.
+
+Y para ejecutar el proyecto, es necesario el comando:
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Construido con 🛠️
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* [Vue.js](https://cli.vuejs.org/guide/installation.html) - Framework web usado
